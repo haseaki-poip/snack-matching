@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  snack-matching
-//
-//  Created by Hasegawa Akito on 2023/02/03.
-//
-
 import SwiftUI
 
 struct HomeView: View {
@@ -27,16 +20,13 @@ struct HomeView: View {
                     VStack {
                         HStack {
                             Image("chips")
-                                .resizable()
-                                .frame(width: 150, height: 150)
+                                .asHomeImage(size: 150)
                             Image("chocolate")
-                                .resizable()
-                                .frame(width: 150, height: 150)
+                                .asHomeImage(size: 150)
                         }
                 
                         Image("cookie")
-                            .resizable()
-                            .frame(width: 150, height: 150)
+                            .asHomeImage(size: 150)
                     }
                     .padding()
                     
@@ -62,6 +52,14 @@ struct HomeView: View {
     }
 }
 
+extension Image {
+    func asHomeImage(size: CGFloat) -> some View {
+        self
+            .resizable()
+            .frame(width: size, height: size)
+    }
+}
+
 struct HomeNavigationButton<Content: View, Label: View>: View {
     
     let content: Content
@@ -72,7 +70,6 @@ struct HomeNavigationButton<Content: View, Label: View>: View {
         self.label = label()
     }
         
-    
     var body: some View {
         NavigationLink(destination: {
             content
@@ -83,7 +80,6 @@ struct HomeNavigationButton<Content: View, Label: View>: View {
                                                .background(Color.brown)
                                                .foregroundColor(Color.white)
                                                .cornerRadius(10)
-                                               
                                        })
         .frame(height: 80)
     }
