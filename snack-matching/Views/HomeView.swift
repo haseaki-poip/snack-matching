@@ -41,16 +41,19 @@ struct HomeView: View {
                     .padding()
                     
                     VStack {
-                        HomeNavigationButton {
-                            Text("swipe")
-                                       
-                                            }
                         
                         HomeNavigationButton {
                             Text("swipe")
-                                       
-                                            }
-                        .frame(height: 80)
+                        } label: {
+                                Text("お菓子を探す")
+                        }
+                        
+                        HomeNavigationButton {
+                            Text("swipe")
+                        } label: {
+                                Text("今日のお菓子")
+                        }
+                        
                     }
                 }
             }
@@ -59,13 +62,14 @@ struct HomeView: View {
     }
 }
 
-struct HomeNavigationButton<Content: View>: View {
+struct HomeNavigationButton<Content: View, Label: View>: View {
     
     let content: Content
+    let label: Label
     
-
-    init(@ViewBuilder content: () -> Content) {
+    init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
         self.content = content()
+        self.label = label()
     }
         
     
@@ -73,7 +77,7 @@ struct HomeNavigationButton<Content: View>: View {
         NavigationLink(destination: {
             content
                                        }, label: {
-                                           Text("")
+                                           label
                                                .frame(width: 150)
                                                .padding()
                                                .background(Color.brown)
