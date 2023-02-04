@@ -2,16 +2,23 @@ import SwiftUI
 
 struct SwipeOkashiView: View {
     var body: some View {
-        VStack {
+        NavigationView {
+            ZStack {
+                Color("appColor")
+                    .ignoresSafeArea()
+                
+                VStack {
                     
-//                    TopControllView()
+                    //                    TopControllView()
                     
                     CardView()
                     
-//                    BottomControllView()
+                    BottomControllView()
                     
                 }
                 .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
+            }
+        }
     }
 }
 

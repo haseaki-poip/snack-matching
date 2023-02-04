@@ -14,6 +14,7 @@
 		0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */; };
 		0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5EE298EBC630001D03F /* OkashiViewModel.swift */; };
 		0866E5F5298EC44B0001D03F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F4298EC44B0001D03F /* CardView.swift */; };
+		0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F6298EC5230001D03F /* BottomControllView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeOkashiView.swift; sourceTree = "<group>"; };
 		0866E5EE298EBC630001D03F /* OkashiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiViewModel.swift; sourceTree = "<group>"; };
 		0866E5F4298EC44B0001D03F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0866E5F6298EC5230001D03F /* BottomControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControllView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0866E5F4298EC44B0001D03F /* CardView.swift */,
+				0866E5F6298EC5230001D03F /* BottomControllView.swift */,
 			);
 			path = Swipe;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
 				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
+				0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */,
 				0866E5F5298EC44B0001D03F /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
