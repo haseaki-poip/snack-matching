@@ -75,10 +75,3 @@ struct CardView: View {
         
     }
 }
-
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView()
-    }
-}

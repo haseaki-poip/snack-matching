@@ -9,7 +9,7 @@ struct SwipeOkashiView: View {
                 
                 VStack {
                     
-                    //                    TopControllView()
+                    TopControllView()
                     
                     CardView()
                     
