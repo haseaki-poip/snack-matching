@@ -11,7 +11,7 @@ import SwiftUI
 struct snack_matchingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
