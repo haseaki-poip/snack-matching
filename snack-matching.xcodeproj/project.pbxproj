@@ -11,6 +11,8 @@
 		08588B46298CFE09003E62B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08588B45298CFE09003E62B7 /* HomeView.swift */; };
 		08588B48298CFE0B003E62B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B47298CFE0B003E62B7 /* Assets.xcassets */; };
 		08588B4B298CFE0B003E62B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */; };
+		0866E5EA298EAE1A0001D03F /* SwipeOkashi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */; };
+		0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5EE298EBC630001D03F /* OkashiViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		08588B45298CFE09003E62B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08588B47298CFE0B003E62B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeOkashi.swift; sourceTree = "<group>"; };
+		0866E5EE298EBC630001D03F /* OkashiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				08588B43298CFE09003E62B7 /* snack_matchingApp.swift */,
+				0866E5ED298EBC300001D03F /* ViewModels */,
 				0866E5E8298E8DDA0001D03F /* Views */,
 				08588B47298CFE0B003E62B7 /* Assets.xcassets */,
 				08588B49298CFE0B003E62B7 /* Preview Content */,
@@ -71,8 +76,17 @@
 			isa = PBXGroup;
 			children = (
 				08588B45298CFE09003E62B7 /* HomeView.swift */,
+				0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0866E5ED298EBC300001D03F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5EE298EBC630001D03F /* OkashiViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0866E5EA298EAE1A0001D03F /* SwipeOkashi.swift in Sources */,
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
+				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
