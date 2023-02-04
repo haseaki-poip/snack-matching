@@ -11,8 +11,9 @@
 		08588B46298CFE09003E62B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08588B45298CFE09003E62B7 /* HomeView.swift */; };
 		08588B48298CFE0B003E62B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B47298CFE0B003E62B7 /* Assets.xcassets */; };
 		08588B4B298CFE0B003E62B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */; };
-		0866E5EA298EAE1A0001D03F /* SwipeOkashi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */; };
+		0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */; };
 		0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5EE298EBC630001D03F /* OkashiViewModel.swift */; };
+		0866E5F5298EC44B0001D03F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F4298EC44B0001D03F /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +22,9 @@
 		08588B45298CFE09003E62B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08588B47298CFE0B003E62B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeOkashi.swift; sourceTree = "<group>"; };
+		0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeOkashiView.swift; sourceTree = "<group>"; };
 		0866E5EE298EBC630001D03F /* OkashiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiViewModel.swift; sourceTree = "<group>"; };
+		0866E5F4298EC44B0001D03F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,9 @@
 		0866E5E8298E8DDA0001D03F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0866E5F0298EC3CD0001D03F /* Components */,
 				08588B45298CFE09003E62B7 /* HomeView.swift */,
-				0866E5E9298EAE1A0001D03F /* SwipeOkashi.swift */,
+				0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -87,6 +90,30 @@
 				0866E5EE298EBC630001D03F /* OkashiViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0866E5F0298EC3CD0001D03F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5F3298EC42A0001D03F /* Common */,
+				0866E5F2298EC40B0001D03F /* Swipe */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0866E5F2298EC40B0001D03F /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5F4298EC44B0001D03F /* CardView.swift */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
+		0866E5F3298EC42A0001D03F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,10 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0866E5EA298EAE1A0001D03F /* SwipeOkashi.swift in Sources */,
+				0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */,
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
 				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
+				0866E5F5298EC44B0001D03F /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
