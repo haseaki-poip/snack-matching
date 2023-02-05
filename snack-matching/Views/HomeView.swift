@@ -33,7 +33,7 @@ struct HomeView: View {
                     VStack {
                         
                         HomeNavigationButton {
-                            Text("swipe")
+                            SwipeOkashiView()
                         } label: {
                                 Text("お菓子を探す")
                         }

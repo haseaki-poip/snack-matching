@@ -11,6 +11,12 @@
 		08588B46298CFE09003E62B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08588B45298CFE09003E62B7 /* HomeView.swift */; };
 		08588B48298CFE0B003E62B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B47298CFE0B003E62B7 /* Assets.xcassets */; };
 		08588B4B298CFE0B003E62B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */; };
+		0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */; };
+		0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5EE298EBC630001D03F /* OkashiViewModel.swift */; };
+		0866E5F5298EC44B0001D03F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F4298EC44B0001D03F /* CardView.swift */; };
+		0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F6298EC5230001D03F /* BottomControllView.swift */; };
+		0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F8298EC78D0001D03F /* TopControllView.swift */; };
+		0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5FA298F73C40001D03F /* SwipeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		08588B45298CFE09003E62B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		08588B47298CFE0B003E62B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08588B4A298CFE0B003E62B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeOkashiView.swift; sourceTree = "<group>"; };
+		0866E5EE298EBC630001D03F /* OkashiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiViewModel.swift; sourceTree = "<group>"; };
+		0866E5F4298EC44B0001D03F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0866E5F6298EC5230001D03F /* BottomControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControllView.swift; sourceTree = "<group>"; };
+		0866E5F8298EC78D0001D03F /* TopControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControllView.swift; sourceTree = "<group>"; };
+		0866E5FA298F73C40001D03F /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				08588B43298CFE09003E62B7 /* snack_matchingApp.swift */,
+				0866E5ED298EBC300001D03F /* ViewModels */,
 				0866E5E8298E8DDA0001D03F /* Views */,
 				08588B47298CFE0B003E62B7 /* Assets.xcassets */,
 				08588B49298CFE0B003E62B7 /* Preview Content */,
@@ -70,9 +83,46 @@
 		0866E5E8298E8DDA0001D03F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0866E5F0298EC3CD0001D03F /* Components */,
 				08588B45298CFE09003E62B7 /* HomeView.swift */,
+				0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0866E5ED298EBC300001D03F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5EE298EBC630001D03F /* OkashiViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0866E5F0298EC3CD0001D03F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5F3298EC42A0001D03F /* Common */,
+				0866E5F2298EC40B0001D03F /* Swipe */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0866E5F2298EC40B0001D03F /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5F4298EC44B0001D03F /* CardView.swift */,
+				0866E5F6298EC5230001D03F /* BottomControllView.swift */,
+				0866E5FA298F73C40001D03F /* SwipeController.swift */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
+		0866E5F3298EC42A0001D03F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0866E5F8298EC78D0001D03F /* TopControllView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */,
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
+				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
+				0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */,
+				0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */,
+				0866E5F5298EC44B0001D03F /* CardView.swift in Sources */,
+				0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +339,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +369,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
