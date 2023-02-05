@@ -3,6 +3,7 @@ import SwiftUI
 struct BottomControllView: View {
     @ObservedObject var okashiDatalist: OkashiData
     @ObservedObject var swipeController: SwipeController
+    @ObservedObject var detailController: DetailController
     
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
@@ -13,7 +14,7 @@ struct BottomControllView: View {
             
             BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .dislike)
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .detail)
+            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .detail, detailController: detailController)
             
             BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .like)
                    
@@ -46,6 +47,7 @@ struct BottomButtonView: View {
     var okashiDatalist: OkashiData
     var swipeController: SwipeController
     let controllType: ControllType
+    var detailController: DetailController?
     
     
     var body: some View {
@@ -69,7 +71,7 @@ struct BottomButtonView: View {
                     swipeController.finishSwipe(startLocation: CGPoint(x: 0, y: 0), location: CGPoint(x: -151, y: 0), okashiDatalist: okashiDatalist)
                 }
                 else {
-                    print("detail")
+                    detailController?.changeDetail()
                 }
                 
             }, label: {

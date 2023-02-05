@@ -3,6 +3,7 @@ import SwiftUI
 struct SwipeOkashiView: View {
     @ObservedObject var okashiDatalist = OkashiData()
     @ObservedObject var swipeController = SwipeController()
+    @ObservedObject var detailController = DetailController()
     
     var body: some View {
         NavigationView {
@@ -19,13 +20,19 @@ struct SwipeOkashiView: View {
                     )
                     
                     BottomControllView(
-                        okashiDatalist: okashiDatalist, swipeController: swipeController
+                        okashiDatalist: okashiDatalist,
+                        swipeController: swipeController,
+                        detailController: detailController
                     )
                     
                 }
                 
-                if okashiDatalist.okashiList.first != nil {
-                    DetailView(okashiItem: okashiDatalist.okashiList.first!)
+                if okashiDatalist.okashiList.first != nil,
+                   detailController.isDetail
+                {
+                    DetailView(okashiItem: okashiDatalist.okashiList.first!,
+                               detailController: detailController
+                    )
                 }
                 
             }

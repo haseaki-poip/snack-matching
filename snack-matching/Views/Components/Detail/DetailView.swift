@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DetailView: View {
     let okashiItem: OkashiItem
+    @ObservedObject var detailController: DetailController
     
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
@@ -22,7 +23,7 @@ struct DetailView: View {
                     HStack {
                         
                         Button(action: {
-                            
+                            detailController.changeDetail()
                         }, label: {
                             Image(systemName: "xmark")
                                 .resizable()

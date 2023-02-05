@@ -18,6 +18,7 @@
 		0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F8298EC78D0001D03F /* TopControllView.swift */; };
 		0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5FA298F73C40001D03F /* SwipeController.swift */; };
 		089DA938298FB1AC0043E603 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089DA937298FB1AC0043E603 /* DetailView.swift */; };
+		089DA93A298FD49C0043E603 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089DA939298FD49C0043E603 /* DetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		0866E5F8298EC78D0001D03F /* TopControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControllView.swift; sourceTree = "<group>"; };
 		0866E5FA298F73C40001D03F /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
 		089DA937298FB1AC0043E603 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		089DA939298FD49C0043E603 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				089DA937298FB1AC0043E603 /* DetailView.swift */,
+				089DA939298FD49C0043E603 /* DetailController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */,
 				0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */,
 				0866E5F5298EC44B0001D03F /* CardView.swift in Sources */,
+				089DA93A298FD49C0043E603 /* DetailController.swift in Sources */,
 				0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
