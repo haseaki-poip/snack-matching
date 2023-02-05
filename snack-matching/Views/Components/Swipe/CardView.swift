@@ -2,10 +2,8 @@ import SwiftUI
 
 struct CardView: View {
     
-    @State var transation: CGSize = .zero // (x: 0, y: 0)
-    
     @ObservedObject var okashiDatalist = OkashiData()
-    
+    @ObservedObject var swipeController = SwipeController()
     
     var body: some View {
         
@@ -26,44 +24,16 @@ struct CardView: View {
                 .cornerRadius(10)
                 .padding(.all, 30)
                 .shadow(radius: 1.1)
-                .offset(okashiDatalist.okashiList.first!.id == okashi.id ? transation : .zero)
-                .rotationEffect((okashiDatalist.okashiList.first!.id == okashi.id ? .degrees(Double(transation.width / 15)) : .zero))
+                .offset(okashiDatalist.okashiList.first!.id == okashi.id ? swipeController.transation : .zero)
+                .rotationEffect((okashiDatalist.okashiList.first!.id == okashi.id ? .degrees(Double(swipeController.transation.width / 15)) : .zero))
                 .gesture(
                     DragGesture()
                         .onChanged({ value in
-                            transation = value.translation
+                            swipeController.swipe(translation: value.translation)
                         })
                         .onEnded({ value in
             
-                            if value.startLocation.x - 150 > value.location.x {
-                                transation = .init(width: -800, height: 0)
-                                // 0.3秒遅らせて配列から削除して、animationを最後まで行わせる
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                    okashiDatalist.removeFirstOkashiInList()
-                                    if okashiDatalist.okashiList.count == 5 {
-                                        okashiDatalist.addOkashiForList()
-                                    }
-                                    
-                                        transation = .zero
-                                        
-                                })
-                                
-                            }
-                            else if value.startLocation.x + 150 < value.location.x {
-                                transation = .init(width: 800, height: 0)
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                    okashiDatalist.removeFirstOkashiInList()
-                                    if okashiDatalist.okashiList.count == 5 {
-                                        okashiDatalist.addOkashiForList()
-                                    }
-                                        
-                                        transation = .zero
-                                    
-                                })
-                            }
-                            else {
-                                transation = .zero
-                            }
+                            swipeController.finishSwipe(startLocation: value.startLocation, location: value.location, okashiDatalist: okashiDatalist)
                         })
                 )
                 .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 1))

@@ -16,6 +16,7 @@
 		0866E5F5298EC44B0001D03F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F4298EC44B0001D03F /* CardView.swift */; };
 		0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F6298EC5230001D03F /* BottomControllView.swift */; };
 		0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F8298EC78D0001D03F /* TopControllView.swift */; };
+		0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5FA298F73C40001D03F /* SwipeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		0866E5F4298EC44B0001D03F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0866E5F6298EC5230001D03F /* BottomControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControllView.swift; sourceTree = "<group>"; };
 		0866E5F8298EC78D0001D03F /* TopControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControllView.swift; sourceTree = "<group>"; };
+		0866E5FA298F73C40001D03F /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				0866E5F4298EC44B0001D03F /* CardView.swift */,
 				0866E5F6298EC5230001D03F /* BottomControllView.swift */,
+				0866E5FA298F73C40001D03F /* SwipeController.swift */,
 			);
 			path = Swipe;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
 				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
+				0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */,
 				0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */,
 				0866E5F5298EC44B0001D03F /* CardView.swift in Sources */,
 				0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */,

@@ -34,6 +34,7 @@ class OkashiData: ObservableObject {
     func serchOkashi(keyword: String, max: Int){
         var req_url_string: String = "https://www.sysbird.jp/webapi/?apikey=guest&format=json"
         
+        // キーワード検索がされているならURLに追加
         if keyword != "" {
             // キーワードをエンコード
             guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
