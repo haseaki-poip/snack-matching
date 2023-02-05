@@ -2,8 +2,8 @@ import SwiftUI
 
 struct CardView: View {
     
-    @ObservedObject var okashiDatalist = OkashiData()
-    @ObservedObject var swipeController = SwipeController()
+    @ObservedObject var okashiDatalist: OkashiData
+    @ObservedObject var swipeController: SwipeController
     
     var body: some View {
         

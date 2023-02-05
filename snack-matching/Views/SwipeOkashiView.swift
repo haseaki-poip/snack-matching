@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct SwipeOkashiView: View {
+    @ObservedObject var okashiDatalist = OkashiData()
+    @ObservedObject var swipeController = SwipeController()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -11,14 +14,19 @@ struct SwipeOkashiView: View {
                     
                     TopControllView()
                     
-                    CardView()
+                    CardView(
+                        okashiDatalist: okashiDatalist, swipeController: swipeController
+                    )
                     
-                    BottomControllView()
+                    BottomControllView(
+                        okashiDatalist: okashiDatalist, swipeController: swipeController
+                    )
                     
                 }
-                .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
+                
             }
         }
+        .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
     }
 }
 
