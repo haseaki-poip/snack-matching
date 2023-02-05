@@ -24,6 +24,10 @@ struct SwipeOkashiView: View {
                     
                 }
                 
+                if okashiDatalist.okashiList.first != nil {
+                    DetailView(okashiItem: okashiDatalist.okashiList.first!)
+                }
+                
             }
         }
         .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
