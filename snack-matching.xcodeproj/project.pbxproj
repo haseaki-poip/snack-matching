@@ -17,6 +17,7 @@
 		0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F6298EC5230001D03F /* BottomControllView.swift */; };
 		0866E5F9298EC78D0001D03F /* TopControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5F8298EC78D0001D03F /* TopControllView.swift */; };
 		0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5FA298F73C40001D03F /* SwipeController.swift */; };
+		089DA938298FB1AC0043E603 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089DA937298FB1AC0043E603 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0866E5F6298EC5230001D03F /* BottomControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControllView.swift; sourceTree = "<group>"; };
 		0866E5F8298EC78D0001D03F /* TopControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControllView.swift; sourceTree = "<group>"; };
 		0866E5FA298F73C40001D03F /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
+		089DA937298FB1AC0043E603 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		0866E5F0298EC3CD0001D03F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				089DA936298FB16E0043E603 /* Detail */,
 				0866E5F3298EC42A0001D03F /* Common */,
 				0866E5F2298EC40B0001D03F /* Swipe */,
 			);
@@ -123,6 +126,14 @@
 				0866E5F8298EC78D0001D03F /* TopControllView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		089DA936298FB16E0043E603 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				089DA937298FB1AC0043E603 /* DetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0866E5EA298EAE1A0001D03F /* SwipeOkashiView.swift in Sources */,
+				089DA938298FB1AC0043E603 /* DetailView.swift in Sources */,
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
 				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
@@ -259,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -313,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -328,12 +340,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"snack-matching/Preview Content\"";
 				DEVELOPMENT_TEAM = 9UV8DWMP99;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "いとお菓子";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -358,12 +372,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"snack-matching/Preview Content\"";
 				DEVELOPMENT_TEAM = 9UV8DWMP99;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "いとお菓子";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

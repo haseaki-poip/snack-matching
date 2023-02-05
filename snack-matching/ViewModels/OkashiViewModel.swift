@@ -81,11 +81,17 @@ class OkashiData: ObservableObject {
                        for item in items {
                            if let name = item.name,
                               let link = item.url,
-                              let comment = item.comment,
+                              var comment = item.comment,
                               let imageURL = item.image,
                               let imageData = try? Data(contentsOf: imageURL),
                               let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
                                
+                               comment = comment.replacingOccurrences(of: "<p>", with: "")
+                               comment = comment.replacingOccurrences(of: "</p>", with: "")
+                               comment = comment.replacingOccurrences(of: "<br>", with: "")
+                               comment = comment.replacingOccurrences(of: "</br>", with: "")
+                               comment = comment.replacingOccurrences(of: "<a [A-Z0-9a-z._%+-/])>", with: "", options: .regularExpression)
+                                
                                // ifにより上の要素が一つもnilでないため以下の処理を行うことができる
                                let okashi = OkashiItem(name: name, link: link, image: image, comment: comment)
                                self.okashiList.append(okashi)
