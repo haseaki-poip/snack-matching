@@ -14,11 +14,46 @@ struct BottomControllView: View {
     var body: some View {
         HStack {
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .dislike, isDetail: $isDetail)
+            BottomButtonView(okashiDatalist: okashiDatalist,
+                             swipeController: swipeController,
+                             favoriteController: favoriteController,
+                             controllType: .dislike,
+                             isDetail: $isDetail)
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .detail, isDetail: $isDetail)
+//            BottomButtonView(okashiDatalist: okashiDatalist,
+//                             swipeController: swipeController,
+//                             favoriteController: favoriteController,
+//                             controllType: .detail,
+//                             isDetail: $isDetail)
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .like, isDetail: $isDetail)
+            ZStack {
+                
+                Color(UIColor.gray)
+                    .asRoundShadow(size: 50)
+                
+                Button(action: {
+                    isDetail.toggle()
+                }, label: {
+                    Image(systemName: "questionmark")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            width: 15,
+                            height: 15
+                        )
+                        .foregroundColor(Color(UIColor.white))
+                })
+                .sheet(isPresented: $isDetail, content: {
+                    DetailView(okashiItem: okashiDatalist.okashiList[0], isDetail: $isDetail)
+                })
+            }
+            
+            
+            BottomButtonView(okashiDatalist: okashiDatalist,
+                             swipeController: swipeController,
+                             favoriteController: favoriteController,
+                             controllType: .like,
+                             isDetail: $isDetail)
                    
         }
         .padding()

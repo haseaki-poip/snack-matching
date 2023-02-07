@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		082A8B462991162B007BE416 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A8B452991162B007BE416 /* FavoriteController.swift */; };
+		082A8B4829922A5F007BE416 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A8B4729922A5F007BE416 /* FavoriteView.swift */; };
 		08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08588B43298CFE09003E62B7 /* snack_matchingApp.swift */; };
 		08588B46298CFE09003E62B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08588B45298CFE09003E62B7 /* HomeView.swift */; };
 		08588B48298CFE0B003E62B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08588B47298CFE0B003E62B7 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		082A8B452991162B007BE416 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
+		082A8B4729922A5F007BE416 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		08588B40298CFE09003E62B7 /* snack-matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snack-matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08588B43298CFE09003E62B7 /* snack_matchingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snack_matchingApp.swift; sourceTree = "<group>"; };
 		08588B45298CFE09003E62B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				082A8B452991162B007BE416 /* FavoriteController.swift */,
+				082A8B4729922A5F007BE416 /* FavoriteView.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				08588B46298CFE09003E62B7 /* HomeView.swift in Sources */,
 				08588B44298CFE09003E62B7 /* snack_matchingApp.swift in Sources */,
 				0866E5EF298EBC630001D03F /* OkashiViewModel.swift in Sources */,
+				082A8B4829922A5F007BE416 /* FavoriteView.swift in Sources */,
 				082A8B462991162B007BE416 /* FavoriteController.swift in Sources */,
 				0866E5FB298F73C40001D03F /* SwipeController.swift in Sources */,
 				0866E5F7298EC5230001D03F /* BottomControllView.swift in Sources */,
