@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FavoriteView: View {
     @ObservedObject var favoriteController = FavoriteController()
-    @State var isDetail: Bool = false;
+    @State var isDetail = false
     
     var body: some View {
         ZStack {
@@ -24,7 +24,8 @@ struct FavoriteView: View {
                     }
                 })
                 .sheet(isPresented: $isDetail, content: {
-                    DetailView(okashiItem: favoriteItem, isDetail: $isDetail)
+                    DetailView(okashiItem: favoriteItem)
+                        .navigationBarHidden(true)
                 })
                 
                 

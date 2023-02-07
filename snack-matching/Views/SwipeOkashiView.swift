@@ -4,9 +4,6 @@ struct SwipeOkashiView: View {
     @ObservedObject var okashiDatalist = OkashiData()
     @ObservedObject var swipeController = SwipeController()
     @ObservedObject var favoriteController = FavoriteController()
-
-    
-    @State var isDetail = false
     
     var body: some View {
         NavigationView {
@@ -24,23 +21,16 @@ struct SwipeOkashiView: View {
                         favoriteController: favoriteController
                     )
                     
-                    BottomControllView(
-                        okashiDatalist: okashiDatalist,
-                        swipeController: swipeController,
-                        favoriteController: favoriteController,
-                        isDetail: $isDetail
-                    )
-                    
-                }
-                
-                if okashiDatalist.okashiList.first != nil,
-                   isDetail
-                {
-                    DetailView(okashiItem: okashiDatalist.okashiList.first!,
-                               isDetail: $isDetail
-                    )
-                    .transition(.move(edge: .bottom))
+                    if okashiDatalist.okashiList.first != nil {
                         
+                        BottomControllView(
+                            okashiDatalist: okashiDatalist,
+                            swipeController: swipeController,
+                            favoriteController: favoriteController
+                        )
+                        
+                    }
+                    
                 }
                 
             }

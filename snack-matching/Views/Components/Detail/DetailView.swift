@@ -3,8 +3,6 @@ import SwiftUI
 struct DetailView: View {
     let okashiItem: OkashiItem
     
-    @Binding var isDetail : Bool
-    
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
     )
@@ -12,31 +10,11 @@ struct DetailView: View {
     var body: some View {
             
         ZStack {
+            
             Color.white
             
             VStack {
-                
-                HStack {
-                    
-                    Button(action: {
-                        withAnimation {
-                            self.isDetail.toggle()
-                        }
-                    }, label: {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .foregroundColor(Color.gray)
-                    })
-                    .padding(.all, 30)
-                    
-                    Spacer()
-                    
-                }
-                .frame(width: frameWidth)
-                
-                GeometryReader(content: { geometry in
-                    
+
                     Spacer()
                     
                     VStack {
@@ -69,7 +47,6 @@ struct DetailView: View {
                     .frame(width: frameWidth)
                     
                     Spacer()
-                })
                 
             }
             .padding(.bottom, 70)
