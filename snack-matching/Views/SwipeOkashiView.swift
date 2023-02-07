@@ -6,34 +6,32 @@ struct SwipeOkashiView: View {
     @ObservedObject var favoriteController = FavoriteController()
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color("appColor")
-                    .ignoresSafeArea()
+        ZStack {
+            Color("appColor")
+                .ignoresSafeArea()
+            
+            VStack {
                 
-                VStack {
+                TopControllView(selectedPage: .search)
+                
+                CardView(
+                    okashiDatalist: okashiDatalist,
+                    swipeController: swipeController,
+                    favoriteController: favoriteController
+                )
+                
+                if okashiDatalist.okashiList.first != nil {
                     
-                    TopControllView(selectedPage: .search)
-                    
-                    CardView(
+                    BottomControllView(
                         okashiDatalist: okashiDatalist,
                         swipeController: swipeController,
                         favoriteController: favoriteController
                     )
                     
-                    if okashiDatalist.okashiList.first != nil {
-                        
-                        BottomControllView(
-                            okashiDatalist: okashiDatalist,
-                            swipeController: swipeController,
-                            favoriteController: favoriteController
-                        )
-                        
-                    }
-                    
                 }
                 
             }
+            
         }
         .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
     }

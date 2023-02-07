@@ -60,7 +60,7 @@ struct TopControllView: View {
             
             
             TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
-                FavoriteView()
+                Text("今日のラッキーお菓子")
             }
 
             
