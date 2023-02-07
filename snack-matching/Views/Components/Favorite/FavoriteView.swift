@@ -7,40 +7,42 @@ struct FavoriteView: View {
     var body: some View {
         ZStack {
             
-            List(favoriteController.favoriteList) { favoriteItem in
+            Color("appColor")
+                .ignoresSafeArea()
+            
+            VStack {
+                TopControllView(selectedPage: .favorite)
                 
-                Button(action: {
-                    isDetail.toggle()
-                }, label: {
-                    HStack {
-                        
-                        Image(uiImage: favoriteItem.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
-                        
-                        Text(favoriteItem.name)
-                        
-                    }
-                })
-                .sheet(isPresented: $isDetail, content: {
-                    DetailView(okashiItem: favoriteItem)
-                        .navigationBarHidden(true)
-                })
-                
+                List(favoriteController.favoriteList) { favoriteItem in
+                    
+                    Button(action: {
+                        isDetail.toggle()
+                    }, label: {
+                        HStack {
+                            
+                            Image(uiImage: favoriteItem.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40, height: 40)
+                            
+                            Text(favoriteItem.name)
+                            
+                        }
+                    })
+                    .sheet(isPresented: $isDetail, content: {
+                        DetailView(okashiItem: favoriteItem)
+                            .navigationBarHidden(true)
+                    })
+                    
+                    
+                }
+                .scrollContentBackground(.hidden)
+                .background(Color("appColor"))
                 
             }
-            .scrollContentBackground(.hidden)
-            .background(Color("appColor"))
-            
         }
+        .navigationBarHidden(true)
         
     }
 }
 
-struct FavoriteView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        FavoriteView()
-    }
-}

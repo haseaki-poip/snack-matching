@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color("appColor")
                     .ignoresSafeArea()
@@ -48,6 +48,7 @@ struct HomeView: View {
                 }
             }
         }
+        .navigationBarHidden(true)
         
     }
 }
@@ -65,23 +66,31 @@ struct HomeNavigationButton<Content: View, Label: View>: View {
     let content: Content
     let label: Label
     
+    @State var isPresented: Bool = false
+    
     init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
         self.content = content()
         self.label = label()
     }
         
     var body: some View {
-        NavigationLink(destination: {
+        
+        Button(action: {
+            isPresented.toggle()
+        }, label: {
+            label
+                .frame(width: 150)
+                .padding()
+                .background(Color.brown)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+        })
+        
+        .navigationDestination(isPresented: $isPresented) {
             content
-                                       }, label: {
-                                           label
-                                               .frame(width: 150)
-                                               .padding()
-                                               .background(Color.brown)
-                                               .foregroundColor(Color.white)
-                                               .cornerRadius(10)
-                                       })
+        }
         .frame(height: 80)
+        
     }
 }
 

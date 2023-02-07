@@ -6,14 +6,14 @@ struct SwipeOkashiView: View {
     @ObservedObject var favoriteController = FavoriteController()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color("appColor")
                     .ignoresSafeArea()
                 
                 VStack {
                     
-                    TopControllView()
+                    TopControllView(selectedPage: .search)
                     
                     CardView(
                         okashiDatalist: okashiDatalist,
