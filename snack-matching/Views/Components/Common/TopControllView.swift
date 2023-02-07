@@ -88,7 +88,13 @@ struct TopNavigationButton<Content: View>: View {
     var body: some View {
         
         Button(action: {
+            // 現在のページのボタンを押されたらnavigatioを無効にしページ更新を防ぐ
+            if selectedPage == buttonType {
+                return
+            }
+            
             isPresented.toggle()
+            
         }, label: {
             Image(systemName: buttonType.buttonImageName())
                 .resizable()
