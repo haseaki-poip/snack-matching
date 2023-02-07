@@ -13,6 +13,10 @@ struct FavoriteView: View {
             VStack {
                 TopControllView(selectedPage: .favorite)
                 
+                Text("お気に入り")
+                    .font(Font.system(size: 30).bold())
+                    .padding(.top, 10)
+                
                 List(favoriteController.favoriteList) { favoriteItem in
                     
                     Button(action: {
@@ -26,6 +30,9 @@ struct FavoriteView: View {
                                 .frame(width: 40, height: 40)
                             
                             Text(favoriteItem.name)
+                                .font(Font.system(size: 15).bold())
+                                .foregroundColor(Color.brown)
+                            
                             
                         }
                     })

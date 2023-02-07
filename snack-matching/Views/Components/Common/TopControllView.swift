@@ -3,6 +3,7 @@ import SwiftUI
 enum PageType {
     case home, search, favorite, lucky
     
+    // buttonTypeに対して使うメソッド
     func buttonImageName() -> String {
         switch( self ){
                 case .home:
