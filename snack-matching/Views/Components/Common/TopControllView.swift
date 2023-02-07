@@ -1,69 +1,114 @@
 import SwiftUI
 
-struct TopControllView: View {
-    enum SelectedItem: Int {
-        case tinder, good, comment, profile
+enum PageType {
+    case home, search, favorite, lucky
+    
+    // buttonTypeに対して使うメソッド
+    func buttonImageName() -> String {
+        switch( self ){
+                case .home:
+                    return "house.fill"
+                case .search:
+                    return "eye.circle.fill"
+                case .favorite:
+                    return "heart.fill"
+                case .lucky:
+                    return "giftcard.fill"
+        }
     }
+    
+    func buttonColor() -> Color {
+        switch( self ){
+                case .home:
+                    return Color.yellow
+                case .search:
+                    return Color.blue
+                case .favorite:
+                    return Color.red
+                case .lucky:
+                    return Color.green
+        }
+    }
+}
+
+struct TopControllView: View {
+    
+    let selectedPage: PageType
     
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
     )
     
-    @State var selectedItem: SelectedItem = .tinder
     
     var body: some View {
+        
         HStack {
-            Button(action: {
-                
-                selectedItem = .tinder
-                
-            }, label: {
-                Image(systemName: "flame.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30)
-                    // 三項演算子を使用して色を変化
-                    .foregroundColor(selectedItem == .tinder ? Color.red : Color.gray)
-            })
-                .frame(width: frameWidth / 5)
-            Button(action: {
-                
-                selectedItem = .good
-                
-            }, label: {
-                Image(systemName: "suit.diamond.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(selectedItem == .good ? Color.yellow: Color.gray)
-            })
-                .frame(width: frameWidth / 5)
-            Button(action: {
-                
-                selectedItem = .comment
-                
-            }, label: {
-                Image(systemName: "bubble.left.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(selectedItem == .comment ? Color.green: Color.gray)
-            })
-                .frame(width: frameWidth / 5)
-            Button(action: {
-                
-                selectedItem = .profile
-                
-            }, label: {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(selectedItem == .profile ? Color.blue: Color.gray)
-            })
-                .frame(width: frameWidth / 5)
+            
+            TopNavigationButton(buttonType: .home ,selectedPage: selectedPage) {
+                HomeView()
+            }
+            
+            
+            TopNavigationButton(buttonType: .search ,selectedPage: selectedPage) {
+                SwipeOkashiView()
+            }
+            
+            
+            TopNavigationButton(buttonType: .favorite ,selectedPage: selectedPage) {
+                FavoriteView()
+            }
+            
+            
+            TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
+                FavoriteView()
+            }
+
+            
         }
         .padding()
         .frame(width: frameWidth)
+    }
+}
+
+struct TopNavigationButton<Content: View>: View {
+    private let frameWidth: CGFloat = CGFloat(
+        UIScreen.main.bounds.width
+    )
+    
+    let content: Content
+    let buttonType: PageType
+    let selectedPage: PageType
+    @State var isPresented: Bool = false
+    
+    init(buttonType: PageType, selectedPage: PageType, @ViewBuilder content: () -> Content) {
+        self.content = content()
+        self.buttonType = buttonType
+        self.selectedPage = selectedPage
+    }
+        
+    var body: some View {
+        
+        Button(action: {
+            // 現在のページのボタンを押されたらnavigatioを無効にしページ更新を防ぐ
+            if selectedPage == buttonType {
+                return
+            }
+            
+            isPresented.toggle()
+            
+        }, label: {
+            Image(systemName: buttonType.buttonImageName())
+                .resizable()
+                .scaledToFill()
+                .frame(width: 30, height: 30)
+                // 三項演算子を使用して色を変化
+                .foregroundColor(selectedPage == buttonType ? buttonType.buttonColor() : Color.gray)
+        })
+        
+        .navigationDestination(isPresented: $isPresented) {
+            content
+        }
+        .frame(width: frameWidth / 5)
+        
     }
 }

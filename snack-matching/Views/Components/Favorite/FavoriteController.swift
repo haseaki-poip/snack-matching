@@ -43,8 +43,6 @@ class FavoriteController: ObservableObject {
             }
         }
         
-        print(self.favoriteList)
-        
     }
     
     func saveFaVoriteItem(okashiItem: OkashiItem) {
@@ -67,8 +65,6 @@ class FavoriteController: ObservableObject {
         UserDefaults.standard.set(self.saveList, forKey: "favorite")
         
         self.favoriteList.append(okashiItem)
-        
-        print(self.favoriteList)
         
     }
     

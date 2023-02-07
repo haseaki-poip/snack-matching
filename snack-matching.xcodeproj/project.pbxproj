@@ -54,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				082A8B452991162B007BE416 /* FavoriteController.swift */,
-				082A8B4729922A5F007BE416 /* FavoriteView.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -101,6 +100,7 @@
 				0866E5F0298EC3CD0001D03F /* Components */,
 				08588B45298CFE09003E62B7 /* HomeView.swift */,
 				0866E5E9298EAE1A0001D03F /* SwipeOkashiView.swift */,
+				082A8B4729922A5F007BE416 /* FavoriteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
