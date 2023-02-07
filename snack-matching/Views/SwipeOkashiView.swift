@@ -3,6 +3,7 @@ import SwiftUI
 struct SwipeOkashiView: View {
     @ObservedObject var okashiDatalist = OkashiData()
     @ObservedObject var swipeController = SwipeController()
+    @ObservedObject var favoriteController = FavoriteController()
 
     
     @State var isDetail = false
@@ -18,14 +19,16 @@ struct SwipeOkashiView: View {
                     TopControllView()
                     
                     CardView(
-                        okashiDatalist: okashiDatalist, swipeController: swipeController
+                        okashiDatalist: okashiDatalist,
+                        swipeController: swipeController,
+                        favoriteController: favoriteController
                     )
                     
                     BottomControllView(
                         okashiDatalist: okashiDatalist,
                         swipeController: swipeController,
+                        favoriteController: favoriteController,
                         isDetail: $isDetail
-                        
                     )
                     
                 }

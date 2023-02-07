@@ -4,10 +4,11 @@ import UIKit
 // Identifiableは一意に識別できる型
 // id = UUID()でデータを一意に特定するためのIDを生成する
 struct OkashiItem: Identifiable {
-    let id = UUID() // idは型定義ではなくUUIDを代入していることに注意
+    let id: String
     let name: String
     let link: URL
     let image: UIImage
+    let image_url: URL //ローカルに保存する用のurl
     let comment: String
 }
 
@@ -15,6 +16,7 @@ class OkashiData: ObservableObject {
     // Jsonデータ構造
     struct ResultJson: Codable {
         struct Item: Codable {
+            let id: String?
             let name: String?
             let url: URL?
             let image: URL?
@@ -79,7 +81,8 @@ class OkashiData: ObservableObject {
                    if let items = json.item { // itemsに代入しつつ、それがnilかどうか。nilでなければその{}の処理を行え、その中でitemsを使える
                        
                        for item in items {
-                           if let name = item.name,
+                           if let id = item.id,
+                              let name = item.name,
                               let link = item.url,
                               var comment = item.comment,
                               let imageURL = item.image,
@@ -89,11 +92,11 @@ class OkashiData: ObservableObject {
                                comment = comment.replacingOccurrences(of: "<p>", with: "")
                                comment = comment.replacingOccurrences(of: "</p>", with: "")
                                comment = comment.replacingOccurrences(of: "<br>", with: "")
-                               comment = comment.replacingOccurrences(of: "</br>", with: "")
+                               comment = comment.replacingOccurrences(of: "<br/>", with: "")
                                comment = comment.replacingOccurrences(of: "<a [A-Z0-9a-z._%+-/])>", with: "", options: .regularExpression)
                                 
                                // ifにより上の要素が一つもnilでないため以下の処理を行うことができる
-                               let okashi = OkashiItem(name: name, link: link, image: image, comment: comment)
+                               let okashi = OkashiItem(id: id, name: name, link: link, image: image, image_url: imageURL, comment: comment)
                                self.okashiList.append(okashi)
                                
                            }

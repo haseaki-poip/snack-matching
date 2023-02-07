@@ -3,6 +3,7 @@ import SwiftUI
 struct BottomControllView: View {
     @ObservedObject var okashiDatalist: OkashiData
     @ObservedObject var swipeController: SwipeController
+    @ObservedObject var favoriteController: FavoriteController
     
     @Binding var isDetail : Bool
     
@@ -13,11 +14,11 @@ struct BottomControllView: View {
     var body: some View {
         HStack {
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .dislike, isDetail: $isDetail)
+            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .dislike, isDetail: $isDetail)
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .detail, isDetail: $isDetail)
+            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .detail, isDetail: $isDetail)
             
-            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, controllType: .like, isDetail: $isDetail)
+            BottomButtonView(okashiDatalist: okashiDatalist, swipeController: swipeController, favoriteController: favoriteController, controllType: .like, isDetail: $isDetail)
                    
         }
         .padding()
@@ -47,6 +48,7 @@ struct BottomButtonView: View {
     
     var okashiDatalist: OkashiData
     var swipeController: SwipeController
+    var favoriteController: FavoriteController
     let controllType: ControllType
     
     @Binding var isDetail : Bool
@@ -67,10 +69,10 @@ struct BottomButtonView: View {
             Button(action: {
                 
                 if controllType == .like {
-                    swipeController.finishSwipe(startLocation: CGPoint(x: 0, y: 0), location: CGPoint(x: 151, y: 0), okashiDatalist: okashiDatalist)
+                    swipeController.finishSwipe(startLocation: CGPoint(x: 0, y: 0), location: CGPoint(x: 151, y: 0), okashiDatalist: okashiDatalist, favoriteController: favoriteController)
                 }
                 else if controllType == .dislike {
-                    swipeController.finishSwipe(startLocation: CGPoint(x: 0, y: 0), location: CGPoint(x: -151, y: 0), okashiDatalist: okashiDatalist)
+                    swipeController.finishSwipe(startLocation: CGPoint(x: 0, y: 0), location: CGPoint(x: -151, y: 0), okashiDatalist: okashiDatalist, favoriteController: favoriteController)
                 }
                 else {
                     withAnimation {
