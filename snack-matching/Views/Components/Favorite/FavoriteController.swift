@@ -18,6 +18,8 @@ class FavoriteController: ObservableObject {
     
     init() {
         
+        // UIの更新をDispatchQueue.main.asyncによりメインスレッド行うことで
+        // アプリでの処理速度が高まる。特に画面遷移が早くなった。
         DispatchQueue.main.async {
             guard let saveJsonList = UserDefaults.standard.object(forKey: "favorite") as? [String: Any] else {
                 return
