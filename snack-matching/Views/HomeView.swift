@@ -39,7 +39,7 @@ struct HomeView: View {
                         }
                         
                         HomeNavigationButton {
-                            Text("swipe")
+                            FavoriteView()
                         } label: {
                                 Text("今日のお菓子")
                         }

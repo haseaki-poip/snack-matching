@@ -9,7 +9,7 @@ class SwipeController: ObservableObject {
         self.transation = translation
     }
     
-    func finishSwipe(startLocation: CGPoint, location: CGPoint, okashiDatalist: OkashiData) {
+    func finishSwipe(startLocation: CGPoint, location: CGPoint, okashiDatalist: OkashiData, favoriteController: FavoriteController) {
         
         if startLocation.x - 150 > location.x {
             self.transation = .init(width: -800, height: 0)
@@ -21,19 +21,23 @@ class SwipeController: ObservableObject {
                 }
                 
                 self.transation = .zero
-                    
+                
             })
             
         }
         else if startLocation.x + 150 < location.x {
             self.transation = .init(width: 800, height: 0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                favoriteController.saveFaVoriteItem(okashiItem: okashiDatalist.okashiList[0])
+                
                 okashiDatalist.removeFirstOkashiInList()
                 if okashiDatalist.okashiList.count == 5 {
                     okashiDatalist.addOkashiForList()
                 }
                     
                 self.transation = .zero
+                
+                
                 
             })
         }

@@ -4,6 +4,7 @@ struct CardView: View {
     
     @ObservedObject var okashiDatalist: OkashiData
     @ObservedObject var swipeController: SwipeController
+    @ObservedObject var favoriteController: FavoriteController
     
     var body: some View {
         
@@ -33,7 +34,7 @@ struct CardView: View {
                         })
                         .onEnded({ value in
             
-                            swipeController.finishSwipe(startLocation: value.startLocation, location: value.location, okashiDatalist: okashiDatalist)
+                            swipeController.finishSwipe(startLocation: value.startLocation, location: value.location, okashiDatalist: okashiDatalist, favoriteController: favoriteController)
                         })
                 )
                 .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 1))
