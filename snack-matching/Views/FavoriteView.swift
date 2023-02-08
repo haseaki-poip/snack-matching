@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FavoriteView: View {
-    @ObservedObject var favoriteController = FavoriteController()
+    var favoriteController: FavoriteController
     @State var isDetail = false
     
     var body: some View {
@@ -12,7 +12,7 @@ struct FavoriteView: View {
             
             VStack {
                 
-                TopControllView(selectedPage: .favorite)
+                TopControllView(favoriteController: favoriteController, selectedPage: .favorite)
                 
                 NavigationView {
                     List(favoriteController.favoriteList) { favoriteItem in
@@ -54,11 +54,5 @@ struct FavoriteView: View {
         }
         .navigationBarHidden(true)
         
-    }
-}
-
-struct FavoriteView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoriteView()
     }
 }

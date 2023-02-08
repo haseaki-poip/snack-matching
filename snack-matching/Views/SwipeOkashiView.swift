@@ -3,7 +3,7 @@ import SwiftUI
 struct SwipeOkashiView: View {
     @ObservedObject var okashiDatalist = OkashiData()
     @ObservedObject var swipeController = SwipeController()
-    @ObservedObject var favoriteController = FavoriteController()
+    var favoriteController: FavoriteController
     
     var body: some View {
         ZStack {
@@ -12,7 +12,7 @@ struct SwipeOkashiView: View {
             
             VStack {
                 
-                TopControllView(selectedPage: .search)
+                TopControllView(favoriteController: favoriteController, selectedPage: .search)
                 
                 CardView(
                     okashiDatalist: okashiDatalist,
@@ -34,12 +34,5 @@ struct SwipeOkashiView: View {
             
         }
         .navigationBarHidden(true) // 画面遷移後のbackボタンやtitle部分のNavigationBarを削除
-    }
-}
-
-
-struct SwipeOkashiView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwipeOkashiView()
     }
 }

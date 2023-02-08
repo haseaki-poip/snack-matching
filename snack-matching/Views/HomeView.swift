@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var favoriteController = FavoriteController()
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -33,13 +36,13 @@ struct HomeView: View {
                     VStack {
                         
                         HomeNavigationButton {
-                            SwipeOkashiView()
+                            SwipeOkashiView(favoriteController: favoriteController)
                         } label: {
                                 Text("お菓子を探す")
                         }
                         
                         HomeNavigationButton {
-                            FavoriteView()
+                            Text("今日のラッキーお菓子")
                         } label: {
                                 Text("今日のお菓子")
                         }
