@@ -91,7 +91,14 @@ struct HomeNavigationButton<Content: View>: View {
         })
         
         .navigationDestination(isPresented: $isPresented) {
-            AppView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
+            
+            if nextPage == .search {
+                SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
+            }
+            else {
+                FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
+            }
+            
         }
         .frame(height: 80)
         

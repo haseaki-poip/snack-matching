@@ -2,10 +2,20 @@ import SwiftUI
 
 struct FavoriteView: View {
     var favoriteController: FavoriteController
+    var okashiDatalist: OkashiData
+    let selectedPage: PageType
+    
     @State var isDetail = false
     
     var body: some View {
         ZStack {
+            
+            Color("appColor")
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                TopControllView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
                 
                 NavigationView {
                     List(favoriteController.favoriteList) { favoriteItem in
@@ -41,6 +51,7 @@ struct FavoriteView: View {
                     // タイトルをつけ配列がからでリストが表示されなくてもbackground(Color("appColor"))
                     // が反映されるようにした
                 }
+            }
                 
         }
         .navigationBarHidden(true)

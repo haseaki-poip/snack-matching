@@ -39,30 +39,21 @@ struct AppView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                
-                Color("appColor")
-                    .ignoresSafeArea()
-                
-                VStack {
+            
                     
-                    if (selectedPage != .home) {
-                        TopControllView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
-                    }
-                    
-                    switch( selectedPage ){
-                    case .home:
-                        HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
-                    case .search:
-                        SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
-                    case .favorite:
-                        FavoriteView(favoriteController: favoriteController)
-                    case .lucky:
-                        HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
-                    }
-                    
-                }
+            switch( selectedPage ){
+            case .home:
+                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
+                case .search:
+                    SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
+                case .favorite:
+                    FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
+                case .lucky:
+                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
             }
+                    
+                
+            
         }
     }
 }

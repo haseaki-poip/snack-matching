@@ -14,13 +14,24 @@ struct TopControllView: View {
         
         HStack {
             
-            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .home ,selectedPage: selectedPage)
+            TopNavigationButton(buttonType: .home ,selectedPage: selectedPage) {
+                HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .home)
+            }
             
-            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .search ,selectedPage: selectedPage)
             
-            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .favorite ,selectedPage: selectedPage)
+            TopNavigationButton(buttonType: .search ,selectedPage: selectedPage) {
+                SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .search)
+            }
             
-            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .lucky ,selectedPage: selectedPage)
+            
+            TopNavigationButton(buttonType: .favorite ,selectedPage: selectedPage) {
+                FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .favorite)
+            }
+            
+            
+            TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
+                Text("今日のラッキーお菓子")
+            }
             
         }
         .padding()
@@ -28,30 +39,36 @@ struct TopControllView: View {
     }
 }
 
-struct TopNavigationButton: View {
-    var favoriteController: FavoriteController
-    var okashiDatalist: OkashiData
+struct TopNavigationButton<Content: View>: View {
+    
+    let content: Content
     let buttonType: PageType
     let selectedPage: PageType
+    @State var isPresented: Bool = false
+    
+    init(buttonType: PageType, selectedPage: PageType, @ViewBuilder content: () -> Content) {
+        self.content = content()
+        self.buttonType = buttonType
+        self.selectedPage = selectedPage
+    }
     
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
     )
     
     
-    @State var isPresented: Bool = false
-    
-    
         
     var body: some View {
         
         Button(action: {
+            
             // 現在のページのボタンを押されたらnavigatioを無効にしページ更新を防ぐ
             if selectedPage == buttonType {
                 return
             }
             
             isPresented.toggle()
+            
             
         }, label: {
             Image(systemName: buttonType.buttonImageName())
@@ -62,7 +79,7 @@ struct TopNavigationButton: View {
                 .foregroundColor(selectedPage == buttonType ? buttonType.buttonColor() : Color.gray)
         })
         .navigationDestination(isPresented: $isPresented) {
-            AppView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: buttonType)
+            content
         }
         .frame(width: frameWidth / 5)
         
