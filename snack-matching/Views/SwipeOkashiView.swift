@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct SwipeOkashiView: View {
-    @ObservedObject var okashiDatalist = OkashiData()
-    @ObservedObject var swipeController = SwipeController()
     var favoriteController: FavoriteController
+    var okashiDatalist: OkashiData
+    
+    @ObservedObject var swipeController = SwipeController()
     
     var body: some View {
         ZStack {
@@ -11,9 +12,6 @@ struct SwipeOkashiView: View {
                 .ignoresSafeArea()
             
             VStack {
-                
-                TopControllView(favoriteController: favoriteController, selectedPage: .search)
-                
                 CardView(
                     okashiDatalist: okashiDatalist,
                     swipeController: swipeController,
@@ -29,7 +27,6 @@ struct SwipeOkashiView: View {
                     )
                     
                 }
-                
             }
             
         }

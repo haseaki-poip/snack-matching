@@ -1,39 +1,8 @@
 import SwiftUI
 
-enum PageType {
-    case home, search, favorite, lucky
-    
-    // buttonTypeに対して使うメソッド
-    func buttonImageName() -> String {
-        switch( self ){
-                case .home:
-                    return "house.fill"
-                case .search:
-                    return "eye.circle.fill"
-                case .favorite:
-                    return "heart.fill"
-                case .lucky:
-                    return "giftcard.fill"
-        }
-    }
-    
-    func buttonColor() -> Color {
-        switch( self ){
-                case .home:
-                    return Color.yellow
-                case .search:
-                    return Color.blue
-                case .favorite:
-                    return Color.red
-                case .lucky:
-                    return Color.green
-        }
-    }
-}
-
 struct TopControllView: View {
     var favoriteController: FavoriteController
-    
+    var okashiDatalist: OkashiData
     let selectedPage: PageType
     
     private let frameWidth: CGFloat = CGFloat(
@@ -45,25 +14,13 @@ struct TopControllView: View {
         
         HStack {
             
-            TopNavigationButton(buttonType: .home ,selectedPage: selectedPage) {
-                HomeView()
-            }
+            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .home ,selectedPage: selectedPage)
             
+            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .search ,selectedPage: selectedPage)
             
-            TopNavigationButton(buttonType: .search ,selectedPage: selectedPage) {
-                SwipeOkashiView(favoriteController: favoriteController)
-            }
+            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .favorite ,selectedPage: selectedPage)
             
-            
-            TopNavigationButton(buttonType: .favorite ,selectedPage: selectedPage) {
-                FavoriteView(favoriteController: favoriteController)
-            }
-            
-            
-            TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
-                Text("今日のラッキーお菓子")
-            }
-
+            TopNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, buttonType: .lucky ,selectedPage: selectedPage)
             
         }
         .padding()
@@ -71,21 +28,20 @@ struct TopControllView: View {
     }
 }
 
-struct TopNavigationButton<Content: View>: View {
+struct TopNavigationButton: View {
+    var favoriteController: FavoriteController
+    var okashiDatalist: OkashiData
+    let buttonType: PageType
+    let selectedPage: PageType
+    
     private let frameWidth: CGFloat = CGFloat(
         UIScreen.main.bounds.width
     )
     
-    let content: Content
-    let buttonType: PageType
-    let selectedPage: PageType
+    
     @State var isPresented: Bool = false
     
-    init(buttonType: PageType, selectedPage: PageType, @ViewBuilder content: () -> Content) {
-        self.content = content()
-        self.buttonType = buttonType
-        self.selectedPage = selectedPage
-    }
+    
         
     var body: some View {
         
@@ -105,9 +61,8 @@ struct TopNavigationButton<Content: View>: View {
                 // 三項演算子を使用して色を変化
                 .foregroundColor(selectedPage == buttonType ? buttonType.buttonColor() : Color.gray)
         })
-        
         .navigationDestination(isPresented: $isPresented) {
-            content
+            AppView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: buttonType)
         }
         .frame(width: frameWidth / 5)
         

@@ -6,13 +6,6 @@ struct FavoriteView: View {
     
     var body: some View {
         ZStack {
-            
-            Color("appColor")
-                .ignoresSafeArea()
-            
-            VStack {
-                
-                TopControllView(favoriteController: favoriteController, selectedPage: .favorite)
                 
                 NavigationView {
                     List(favoriteController.favoriteList) { favoriteItem in
@@ -49,8 +42,6 @@ struct FavoriteView: View {
                     // が反映されるようにした
                 }
                 
-                
-            }
         }
         .navigationBarHidden(true)
         
