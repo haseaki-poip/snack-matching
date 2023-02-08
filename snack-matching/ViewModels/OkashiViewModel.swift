@@ -29,6 +29,7 @@ class OkashiData: ObservableObject {
     @Published var okashiList: [OkashiItem] = []
     
     init() {
+        print("init")
         self.serchOkashi(keyword: "", max: 15)
         
     }
@@ -73,44 +74,44 @@ class OkashiData: ObservableObject {
            }
            
            if response.statusCode == 200 {
-
-               do {
-                   
-                   let json = try JSONDecoder().decode(ResultJson.self, from: data)
-                   
-                   if let items = json.item { // itemsに代入しつつ、それがnilかどうか。nilでなければその{}の処理を行え、その中でitemsを使える
+               DispatchQueue.main.async {
+                   do {
                        
-                       for item in items {
-                           if let id = item.id,
-                              let name = item.name,
-                              let link = item.url,
-                              var comment = item.comment,
-                              let imageURL = item.image,
-                              let imageData = try? Data(contentsOf: imageURL),
-                              let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
-                               
-                               comment = comment.replacingOccurrences(of: "<p>", with: "")
-                               comment = comment.replacingOccurrences(of: "</p>", with: "")
-                               comment = comment.replacingOccurrences(of: "<br>", with: "")
-                               comment = comment.replacingOccurrences(of: "<br/>", with: "")
-                               comment = comment.replacingOccurrences(of: "<a [A-Z0-9a-z._%+-/])>", with: "", options: .regularExpression)
-                                
-                               // ifにより上の要素が一つもnilでないため以下の処理を行うことができる
-                               let okashi = OkashiItem(id: id, name: name, link: link, image: image, image_url: imageURL, comment: comment)
-                               self.okashiList.append(okashi)
-                               
+                       let json = try JSONDecoder().decode(ResultJson.self, from: data)
+                       
+                       if let items = json.item { // itemsに代入しつつ、それがnilかどうか。nilでなければその{}の処理を行え、その中でitemsを使える
+                           
+                           for item in items {
+                               if let id = item.id,
+                                  let name = item.name,
+                                  let link = item.url,
+                                  var comment = item.comment,
+                                  let imageURL = item.image,
+                                  let imageData = try? Data(contentsOf: imageURL),
+                                  let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
+                                   
+                                   comment = comment.replacingOccurrences(of: "<p>", with: "")
+                                   comment = comment.replacingOccurrences(of: "</p>", with: "")
+                                   comment = comment.replacingOccurrences(of: "<br>", with: "")
+                                   comment = comment.replacingOccurrences(of: "<br/>", with: "")
+                                   comment = comment.replacingOccurrences(of: "<a [A-Z0-9a-z._%+-/])>", with: "", options: .regularExpression)
+                                   
+                                   // ifにより上の要素が一つもnilでないため以下の処理を行うことができる
+                                   let okashi = OkashiItem(id: id, name: name, link: link, image: image, image_url: imageURL, comment: comment)
+                                   self.okashiList.append(okashi)
+                                   
+                               }
                            }
                        }
+                       else {
+                           self.okashiList.removeAll()
+                       }
+                       
+                       
+                   } catch let error {
+                       print(":エラー:\(error)") // JSONの値がIDがIntなのに、StructでIDをStringと宣言している時などエラーになる。
                    }
-                   else {
-                       self.okashiList.removeAll()
-                   }
-                   
-                   
-               } catch let error {
-                   print(":エラー:\(error)") // JSONの値がIDがIntなのに、StructでIDをStringと宣言している時などエラーになる。
                }
-               
                
            } else {
                print("statusCode:\(response.statusCode)")

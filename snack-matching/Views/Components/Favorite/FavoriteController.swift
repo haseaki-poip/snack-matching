@@ -18,28 +18,36 @@ class FavoriteController: ObservableObject {
     
     init() {
         
-        guard let saveJsonList = UserDefaults.standard.object(forKey: "favorite") as? [String: Any] else {
-            return
-        }
-
-        self.saveList = saveJsonList
-        
-        for saveJsonItem in saveJsonList {
-            if let saveItem = try? JSONDecoder().decode(SaveItem.self, from: saveJsonItem.value as! Data) {
-                
-                let id = saveJsonItem.key
-                let name = saveItem.name
-                let link = saveItem.link
-                let image_url = saveItem.image_url
-                let comment = saveItem.comment
-                
-                if  let imageData = try? Data(contentsOf: image_url),
-                    let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
-                    self.favoriteList.append(
-                        OkashiItem(id: id, name: name, link: link, image: image, image_url: image_url, comment: comment)
-                    )
+        // UIの更新をDispatchQueue.main.asyncによりメインスレッド行うことで
+        // アプリでの処理速度が高まる。特に画面遷移が早くなった。
+        DispatchQueue.main.async {
+            guard let saveJsonList = UserDefaults.standard.object(forKey: "favorite") as? [String: Any] else {
+                return
+            }
+            
+            self.saveList = saveJsonList
+            
+            for saveJsonItem in saveJsonList {
+                if let saveItem = try? JSONDecoder().decode(SaveItem.self, from: saveJsonItem.value as! Data) {
+                    
+                    let id = saveJsonItem.key
+                    let name = saveItem.name
+                    let link = saveItem.link
+                    let image_url = saveItem.image_url
+                    let comment = saveItem.comment
+                    
+                    
+                    if  let imageData = try? Data(contentsOf: image_url),
+                        let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
+                        self.favoriteList.append(
+                            OkashiItem(id: id, name: name, link: link, image: image, image_url: image_url, comment: comment)
+                        )
+                        
+                    }
+                    
+                    
+                    
                 }
-                
             }
         }
         

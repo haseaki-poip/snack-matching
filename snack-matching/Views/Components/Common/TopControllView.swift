@@ -32,6 +32,7 @@ enum PageType {
 }
 
 struct TopControllView: View {
+    var favoriteController: FavoriteController
     
     let selectedPage: PageType
     
@@ -50,17 +51,17 @@ struct TopControllView: View {
             
             
             TopNavigationButton(buttonType: .search ,selectedPage: selectedPage) {
-                SwipeOkashiView()
+                SwipeOkashiView(favoriteController: favoriteController)
             }
             
             
             TopNavigationButton(buttonType: .favorite ,selectedPage: selectedPage) {
-                FavoriteView()
+                FavoriteView(favoriteController: favoriteController)
             }
             
             
             TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
-                FavoriteView()
+                Text("今日のラッキーお菓子")
             }
 
             
