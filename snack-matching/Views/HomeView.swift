@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @ObservedObject var favoriteController = FavoriteController()
+    var favoriteController: FavoriteController
+    var okashiDatalist: OkashiData
+    let selectedPage: PageType
     
     var body: some View {
         NavigationStack {
@@ -35,16 +36,12 @@ struct HomeView: View {
                     
                     VStack {
                         
-                        HomeNavigationButton {
-                            SwipeOkashiView(favoriteController: favoriteController)
-                        } label: {
-                                Text("お菓子を探す")
+                        HomeNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, nextPage: .search) {
+                            Text("お菓子を探す")
                         }
                         
-                        HomeNavigationButton {
-                            Text("今日のラッキーお菓子")
-                        } label: {
-                                Text("今日のお菓子")
+                        HomeNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, nextPage: .favorite) {
+                            Text("今日のお菓子")
                         }
                         
                     }
@@ -64,16 +61,20 @@ extension Image {
     }
 }
 
-struct HomeNavigationButton<Content: View, Label: View>: View {
-    
+struct HomeNavigationButton<Content: View>: View {
+    var favoriteController: FavoriteController
+    var okashiDatalist: OkashiData
+    let nextPage: PageType
     let content: Content
-    let label: Label
+    
     
     @State var isPresented: Bool = false
     
-    init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
+    init(favoriteController: FavoriteController, okashiDatalist: OkashiData, nextPage: PageType, @ViewBuilder content: () -> Content) {
+        self.favoriteController = favoriteController
+        self.okashiDatalist = okashiDatalist
+        self.nextPage = nextPage
         self.content = content()
-        self.label = label()
     }
         
     var body: some View {
@@ -81,7 +82,7 @@ struct HomeNavigationButton<Content: View, Label: View>: View {
         Button(action: {
             isPresented.toggle()
         }, label: {
-            label
+            content
                 .frame(width: 150)
                 .padding()
                 .background(Color.brown)
@@ -90,15 +91,16 @@ struct HomeNavigationButton<Content: View, Label: View>: View {
         })
         
         .navigationDestination(isPresented: $isPresented) {
-            content
+            
+            if nextPage == .search {
+                SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
+            }
+            else {
+                FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
+            }
+            
         }
         .frame(height: 80)
         
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

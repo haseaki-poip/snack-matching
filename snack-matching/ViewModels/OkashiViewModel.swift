@@ -29,7 +29,7 @@ class OkashiData: ObservableObject {
     @Published var okashiList: [OkashiItem] = []
     
     init() {
-        print("init")
+        
         self.serchOkashi(keyword: "", max: 15)
         
     }
