@@ -43,13 +43,13 @@ struct AppView: View {
                     
             switch( selectedPage ){
             case .home:
-                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
+                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
                 case .search:
                     SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
                 case .favorite:
                     FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
                 case .lucky:
-                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
+                    HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
             }
                     
                 

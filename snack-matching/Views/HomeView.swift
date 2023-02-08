@@ -3,7 +3,6 @@ import SwiftUI
 struct HomeView: View {
     var favoriteController: FavoriteController
     var okashiDatalist: OkashiData
-    let selectedPage: PageType
     
     var body: some View {
         NavigationStack {

@@ -15,7 +15,7 @@ struct TopControllView: View {
         HStack {
             
             TopNavigationButton(buttonType: .home ,selectedPage: selectedPage) {
-                HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .home)
+                HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
             }
             
             
