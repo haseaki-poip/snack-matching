@@ -11,7 +11,7 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("いとお菓子")
+                    Text("Eatお菓子")
                         .foregroundColor(Color.brown)
                         .font(Font.system(size: 45).bold())
                         .padding(.bottom, 0.1)
