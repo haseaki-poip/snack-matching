@@ -1,18 +1,18 @@
 import SwiftUI
 
 enum PageType {
-    case home, search, favorite, lucky
+    case home, swipe, favorite, voting
     
     // buttonTypeに対して使うメソッド
     func buttonImageName() -> String {
         switch( self ){
                 case .home:
                     return "house.fill"
-                case .search:
+                case .swipe:
                     return "eye.circle.fill"
                 case .favorite:
                     return "heart.fill"
-                case .lucky:
+                case .voting:
                     return "giftcard.fill"
         }
     }
@@ -21,11 +21,11 @@ enum PageType {
         switch( self ){
                 case .home:
                     return Color.yellow
-                case .search:
+                case .swipe:
                     return Color.blue
                 case .favorite:
                     return Color.red
-                case .lucky:
+                case .voting:
                     return Color.green
         }
     }
@@ -44,11 +44,11 @@ struct AppView: View {
             switch( selectedPage ){
             case .home:
                     HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
-                case .search:
+                case .swipe:
                     SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
                 case .favorite:
                     FavoriteView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: selectedPage)
-                case .lucky:
+                case .voting:
                     HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
             }
                     

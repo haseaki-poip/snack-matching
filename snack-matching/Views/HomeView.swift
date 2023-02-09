@@ -35,12 +35,12 @@ struct HomeView: View {
                     
                     VStack {
                         
-                        HomeNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, nextPage: .search) {
+                        HomeNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, nextPage: .swipe) {
                             Text("お菓子を探す")
                         }
                         
                         HomeNavigationButton(favoriteController: favoriteController, okashiDatalist: okashiDatalist, nextPage: .favorite) {
-                            Text("今日のお菓子")
+                            Text("お気に入り")
                         }
                         
                     }
@@ -91,7 +91,7 @@ struct HomeNavigationButton<Content: View>: View {
         
         .navigationDestination(isPresented: $isPresented) {
             
-            if nextPage == .search {
+            if nextPage == .swipe {
                 SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: nextPage)
             }
             else {

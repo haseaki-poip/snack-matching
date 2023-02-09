@@ -14,13 +14,8 @@ struct TopControllView: View {
         
         HStack {
             
-            TopNavigationButton(buttonType: .home ,selectedPage: selectedPage) {
-                HomeView(favoriteController: favoriteController, okashiDatalist: okashiDatalist)
-            }
-            
-            
-            TopNavigationButton(buttonType: .search ,selectedPage: selectedPage) {
-                SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .search)
+            TopNavigationButton(buttonType: .swipe ,selectedPage: selectedPage) {
+                SwipeOkashiView(favoriteController: favoriteController, okashiDatalist: okashiDatalist, selectedPage: .swipe)
             }
             
             
@@ -29,8 +24,8 @@ struct TopControllView: View {
             }
             
             
-            TopNavigationButton(buttonType: .lucky ,selectedPage: selectedPage) {
-                Text("今日のラッキーお菓子")
+            TopNavigationButton(buttonType: .voting ,selectedPage: selectedPage) {
+                Text("投票結果")
             }
             
         }
