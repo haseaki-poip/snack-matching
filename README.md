@@ -1,4 +1,7 @@
-# [Eatお菓子](https://github.com/haseaki-poip/snack-matching)
+# [Eatお菓子](https://www.youtube.com/watch?v=O38z5bRIem0)
+
+## アプリ使用動画(画像クリックで再生)
+[![アプリ使用動画](https://img.youtube.com/vi/O38z5bRIem0/0.jpg)](https://www.youtube.com/watch?v=O38z5bRIem0)
 
 ## 概要
 たくさんのお菓子と出会えるお菓子なマッチングアプリ
